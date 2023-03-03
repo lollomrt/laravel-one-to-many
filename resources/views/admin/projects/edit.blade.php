@@ -31,7 +31,7 @@
                 <form action="{{ route('admin.projects.update', $project->slug)}}" method="POST" class="w-100 d-flex gap-3 flex-wrap">
                     @csrf
                     @method('PUT')
-                    <div class="form-group w-100">
+                    <div class="form-group w-75">
                         <label for="">Titolo</label>
                         <input type="text" name="title" class="form-control" value="{{ old('title') ?? $project->title}}" placeholder="Inserisci il nome del progetto ...">
                         @error('title')
@@ -40,8 +40,9 @@
                             </div>
                         @enderror
                     </div>
-                    <div>
-                        <select name="category_id" id="category_id">
+                    <div class="d-flex flex-column flex-grow">
+                        <label for="">Categorie</label>
+                        <select class="form-select w-100" name="category_id" id="category_id">
                             @foreach($categories as $category)
                             <option value="{{$category->id}}" {{ $category->id == old ('category_id', $project->category_id) ?? 'selected'}}>{{$category->title}}</option>
                             @endforeach

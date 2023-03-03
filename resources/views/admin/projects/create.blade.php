@@ -39,6 +39,14 @@
                             </div>
                         @enderror
                     </div>
+                    <div class="d-flex flex-column flex-grow">
+                        <label for="">Categorie</label>
+                        <select class="form-select w-100" name="category_id" id="category_id">
+                            @foreach($categories as $category)
+                            <option value="{{$category->id}}">{{$category->title}}</option>
+                            @endforeach
+                        </select>
+                    </div>
                     <div class="form-group w-100">
                         <label for="">Descrizione</label>
                         <textarea name="content" id="" cols="30" rows="4" class="form-control" placeholder="Inserisci descrizione ..."></textarea>
