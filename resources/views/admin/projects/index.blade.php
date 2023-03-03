@@ -27,6 +27,7 @@
                         <th scope="col">title</th>
                         <th scope="col">slug</th>
                         <th scope="col">content</th>
+                        <th scope="col">category</th>
                         <th scope="col">actions</th>
                       </tr>
                     </thead>
@@ -37,6 +38,7 @@
                                 <td>{{ $project->title }}</td>
                                 <td>{{ $project->slug }}</td>
                                 <td>{{ $project->content }}</td>
+                                <td>{{ $project->category ? $project->category->title : 'Non disponibile' }}</td>
                                 <td>
                                     <div class="d-flex gap-2">
                                         <a title="Visualizza" class="btn btn-square btn-sm py-2 btn-primary" href="{{ route('admin.projects.show', $project->slug) }}"><i class="fa-solid fa-eye"></i></a>

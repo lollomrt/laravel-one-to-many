@@ -3,10 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Project;
+use App\Models\Category;
 // use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
+
+
 use Illuminate\Support\Str;
 
 class ProjectController extends Controller
@@ -29,7 +33,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('admin.projects.create');
+        $categories = Category::all();
+        return view('admin.projects.create', compact('categories'));
     }
 
     /**
@@ -70,7 +75,8 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view('admin.projects.edit', compact('project'));
+        $categories = Category::all();
+        return view('admin.projects.edit', compact('project', 'categories'));
     }
 
     /**
@@ -86,6 +92,7 @@ class ProjectController extends Controller
         $slug = Project::generateSlug($request->title);
         $form_data['slug'] = $slug;
         $project->update($form_data);
+
 
         return redirect()->route('admin.projects.index')->with('message', $project->title.' è stato modificato con successo!');
     }

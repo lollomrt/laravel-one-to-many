@@ -25,9 +25,7 @@ class UpdateProjectRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => ['required', Rule::unique('projects')->ignore($this->project), 'max:150'],
-            'content' => ['nullable'],
-            'category_id' => ['nullable']
+            'title' => ['required', Rule::unique('categories')->ignore($this->category), 'max:20']
         ];
     }
 
@@ -40,7 +38,7 @@ class UpdateProjectRequest extends FormRequest
     {
         return [
             'title.required' => 'Il titolo è obbligatorio',
-            'title.max' => 'Il titolo non piò superare :max parole'
+            'title.max' => 'Il titolo non può superare :max parole'
         ];
     }
 }

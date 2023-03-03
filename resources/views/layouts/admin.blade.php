@@ -60,8 +60,8 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.category.index' ? 'bg-secondary' : '' }}" href="{{route('admin.category.index') }}">
-                                    <i class="fa-solid fa-list fa-lg fa-fw"></i> Projects
+                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.categories.index' ? 'bg-secondary' : '' }}" href="{{route('admin.categories.index') }}">
+                                    <i class="fa-solid fa-list fa-lg fa-fw"></i> Categories
                                 </a>
                             </li>
                         </ul>

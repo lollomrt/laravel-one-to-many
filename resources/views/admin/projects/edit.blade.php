@@ -40,6 +40,13 @@
                             </div>
                         @enderror
                     </div>
+                    <div>
+                        <select name="category_id" id="category_id">
+                            @foreach($categories as $category)
+                            <option value="{{$category->id}}" {{ $category->id == old ('category_id', $project->category_id) ?? 'selected'}}>{{$category->title}}</option>
+                            @endforeach
+                        </select>
+                    </div>
                     <div class="form-group w-100">
                         <label for="">Descrizione</label>
                         <textarea name="content" id="" cols="30" rows="4" class="form-control" placeholder="Inserisci descrizione ...">{{ old('content') ?? $project->content}}</textarea>
